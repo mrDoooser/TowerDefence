@@ -68,6 +68,9 @@
     <Compile Include="Assets\Scripts\Enemy\EnemiesGroup.cs" />
     <Compile Include="Assets\Scripts\Enemy\FastEnemy.cs" />
     <Compile Include="Assets\Scripts\Enemy\StrongEnemy.cs" />
+    <Compile Include="Assets\Scripts\EventSystem\GameEvent.cs" />
+    <Compile Include="Assets\Scripts\EventSystem\GameEventListener.cs" />
+    <Compile Include="Assets\Scripts\EventSystem\GameEventObject.cs" />
     <Compile Include="Assets\Scripts\Game\GameController.cs" />
     <Compile Include="Assets\Scripts\Game\GameInstaller.cs" />
     <Compile Include="Assets\Scripts\Game\GameParamsInataller.cs" />
@@ -75,6 +78,7 @@
     <Compile Include="Assets\Scripts\Interfaces\IDamagable.cs" />
     <Compile Include="Assets\Scripts\Player\CastleController.cs" />
     <Compile Include="Assets\Scripts\Player\PlayerController.cs" />
+    <Compile Include="Assets\Scripts\Player\PlayerHealthController.cs" />
     <Compile Include="Assets\Scripts\Projectile\AbstractProjectile.cs" />
     <Compile Include="Assets\Scripts\Road\CheckpointController.cs" />
     <Compile Include="Assets\Scripts\Road\RoadController.cs" />

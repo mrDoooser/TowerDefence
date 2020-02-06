@@ -14,6 +14,11 @@ public class PlayerController : MonoBehaviour
     public delegate void CoinsChanged();
     public static event CoinsChanged OnCoinsChanged;
 
+    [SerializeField]
+    protected GameEvent OnTakeDamageEvent;
+    [SerializeField]
+    protected GameEvent OnDieEvent;
+
 
     [Inject]
     protected GameLevelConfig _gameConfig;
@@ -42,6 +47,8 @@ public class PlayerController : MonoBehaviour
             OnCoinsChanged();
         if(OnCoinsChanged != null)
             OnHealthChanged();
+
+        OnTakeDamageEvent.Raise(gameObject);
     }
 
     private void OnDestroy()
@@ -65,7 +72,13 @@ public class PlayerController : MonoBehaviour
         {
             if(OnDie != null)
                 OnDie();
+
+            if (OnDieEvent)
+                OnDieEvent.Raise(gameObject);
         }
+
+        if(OnTakeDamageEvent)
+            OnTakeDamageEvent.Raise(gameObject);
     }
 
     public void AddCoins(int AddiditionalCoins)

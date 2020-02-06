@@ -1,0 +1,10 @@
+/Builds/
+/.vs/
+*.csproj
+/Packages/
+*.sln
+*.txt
+*.userprefs
+/UnityPackageManager/
+/Library/
+/obj/

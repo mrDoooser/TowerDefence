@@ -34,13 +34,13 @@ public class GameController : MonoBehaviour
     void Initialize()
     {
         _camera = Camera.main;
-        PlayerController.OnDie += PlayerLoose;
+        //PlayerController.OnDie += PlayerLoose;
         _wavesController.OnWavesEnded += PlayerWin;
     }
 
     private void OnDestroy()
     {
-        PlayerController.OnDie -= PlayerLoose;
+        //PlayerController.OnDie -= PlayerLoose;
         _wavesController.OnWavesEnded -= PlayerWin;
     }
 

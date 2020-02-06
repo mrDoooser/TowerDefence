@@ -1987,6 +1987,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 951a73baf87523c46b259e069562c55a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  OnTakeDamageEvent: {fileID: 11400000, guid: 96387a008514cb940928dd99c5883148, type: 2}
+  OnDieEvent: {fileID: 11400000, guid: 65297cfb8b6d08c4c81d3865f54baeab, type: 2}
 --- !u!114 &564444700
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2578,7 +2580,7 @@ Transform:
   - {fileID: 306304704}
   - {fileID: 64857064}
   m_Father: {fileID: 0}
-  m_RootOrder: 5
+  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &725985561
 GameObject:
@@ -3366,7 +3368,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 8
+  m_RootOrder: 9
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1237804931
 GameObject:
@@ -3677,7 +3679,7 @@ MonoBehaviour:
   m_outlineColor:
     serializedVersion: 2
     rgba: 4278190080
-  m_fontSize: 22.35
+  m_fontSize: 22.3
   m_fontSizeBase: 18
   m_fontWeight: 400
   m_enableAutoSizing: 1
@@ -3789,7 +3791,7 @@ Transform:
   - {fileID: 755674249}
   - {fileID: 1845214694}
   m_Father: {fileID: 0}
-  m_RootOrder: 4
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1296589140
 MonoBehaviour:
@@ -4501,6 +4503,7 @@ GameObject:
   - component: {fileID: 1542819217}
   - component: {fileID: 1542819216}
   - component: {fileID: 1542819218}
+  - component: {fileID: 1542819219}
   m_Layer: 0
   m_Name: GameController
   m_TagString: Untagged
@@ -4565,6 +4568,33 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d3cdf874208f24f4bba167e53d395ce6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &1542819219
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1542819214}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bf5ed9e594f3b9644a4ebfd050175239, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Event: {fileID: 11400000, guid: 65297cfb8b6d08c4c81d3865f54baeab, type: 2}
+  Response:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1542819217}
+        m_MethodName: PlayerLoose
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &1546869103
 GameObject:
   m_ObjectHideFlags: 0
@@ -4662,7 +4692,7 @@ RectTransform:
   - {fileID: 291418410}
   - {fileID: 2130498650}
   m_Father: {fileID: 0}
-  m_RootOrder: 7
+  m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
@@ -4752,7 +4782,7 @@ MonoBehaviour:
   m_outlineColor:
     serializedVersion: 2
     rgba: 4278190080
-  m_fontSize: 13.6
+  m_fontSize: 13.55
   m_fontSizeBase: 14
   m_fontWeight: 400
   m_enableAutoSizing: 1
@@ -4837,6 +4867,7 @@ GameObject:
   - component: {fileID: 1563451572}
   - component: {fileID: 1563451575}
   - component: {fileID: 1563451574}
+  - component: {fileID: 1563451576}
   m_Layer: 5
   m_Name: GameInfo_Panel
   m_TagString: Untagged
@@ -4938,6 +4969,33 @@ MonoBehaviour:
   _textMeshPlayerHealth: {fileID: 725985563}
   _textMeshPlayerCoins: {fileID: 1554644020}
   _textMeshPlayerWaves: {fileID: 1286510779}
+--- !u!114 &1563451576
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1563451570}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bf5ed9e594f3b9644a4ebfd050175239, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Event: {fileID: 11400000, guid: 96387a008514cb940928dd99c5883148, type: 2}
+  Response:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1563451575}
+        m_MethodName: OnPlayerHealhChanged
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &1588893359
 GameObject:
   m_ObjectHideFlags: 0
@@ -5358,6 +5416,36 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 66310dc5c63cfec45a47a8ea5fb3f08c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!1 &1806285453
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1806285454}
+  m_Layer: 0
+  m_Name: Events
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1806285454
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1806285453}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 4
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1808765937
 GameObject:
   m_ObjectHideFlags: 0
@@ -5734,7 +5822,7 @@ Transform:
   - {fileID: 350592291}
   - {fileID: 564444698}
   m_Father: {fileID: 0}
-  m_RootOrder: 6
+  m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1985412930
 GameObject:
@@ -6278,7 +6366,7 @@ MonoBehaviour:
   m_outlineColor:
     serializedVersion: 2
     rgba: 4278190080
-  m_fontSize: 19.6
+  m_fontSize: 19.55
   m_fontSizeBase: 18
   m_fontWeight: 400
   m_enableAutoSizing: 1
