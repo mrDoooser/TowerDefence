@@ -23,8 +23,6 @@ public class GameController : MonoBehaviour
     [Inject]
     UIController _UIController;
 
-
-    // Start is called before the first frame update
     void Start()
     {
         Initialize();
@@ -34,14 +32,10 @@ public class GameController : MonoBehaviour
     void Initialize()
     {
         _camera = Camera.main;
-        //PlayerController.OnDie += PlayerLoose;
-        _wavesController.OnWavesEnded += PlayerWin;
     }
 
     private void OnDestroy()
     {
-        //PlayerController.OnDie -= PlayerLoose;
-        _wavesController.OnWavesEnded -= PlayerWin;
     }
 
     public void Exit()

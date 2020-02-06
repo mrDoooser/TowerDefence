@@ -5,9 +5,11 @@ using Zenject;
 
 public class WavesController : MonoBehaviour
 {
-    public delegate void WavesEventdHandler();
-    public event WavesEventdHandler OnWavesEnded;
-    public event WavesEventdHandler OnNewWaveStarted;
+    [SerializeField]
+    protected GameEvent OnWavesEndedEvent;
+    [SerializeField]
+    protected GameEvent OnNewWaveStartedEvent;
+
 
     [Inject]
     EnemiesSpawnerController _enemiesSpawnerController;
@@ -21,8 +23,6 @@ public class WavesController : MonoBehaviour
 
     public int CurrentWave { get { return _currentWaveIndex; } }
     public int TotalWaves { get { return _wavesParams.Waves.Length; } }
-    //public int TotalWaves { get { return 0; } }
-
 
     private void Start()
     {
@@ -37,9 +37,9 @@ public class WavesController : MonoBehaviour
 
     public void OnDestroyedAllEnemiesInWave()
     {
-        if(_wavesParams.Waves.Length <= _currentWaveIndex && OnWavesEnded != null)
+        if(_wavesParams.Waves.Length <= _currentWaveIndex && OnWavesEndedEvent != null)
         {
-            OnWavesEnded();
+            OnWavesEndedEvent.Raise(gameObject);
         }
     }
 
@@ -52,8 +52,8 @@ public class WavesController : MonoBehaviour
     {
         Debug.Log("Start wave " + _currentWaveIndex);
         _enemiesSpawnerController.SpawnWave(_wavesParams.Waves[_currentWaveIndex]);
-        if (OnNewWaveStarted != null)
-            OnNewWaveStarted();
+        if (OnNewWaveStartedEvent != null)
+            OnNewWaveStartedEvent.Raise(gameObject);
 
         StartCoroutine(EndWaveByTimer(_wavesParams.Waves[_currentWaveIndex].WaveTime));
     }
@@ -68,7 +68,6 @@ public class WavesController : MonoBehaviour
         }
         else
         {
-            // TODO: End game event or signal
             Debug.Log("End game after " + _currentWaveIndex + " waves");
         }
     }

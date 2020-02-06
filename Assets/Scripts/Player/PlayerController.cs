@@ -3,22 +3,18 @@ using System.Collections.Generic;
 using UnityEngine;
 using Zenject;
 
+[RequireComponent(typeof(HealthController))]
 public class PlayerController : MonoBehaviour
 {
-    public delegate void DieHandler();
-    public static event DieHandler OnDie;
-
-    public delegate void DamageTaked();
-    public static event DamageTaked OnHealthChanged;
-
-    public delegate void CoinsChanged();
-    public static event CoinsChanged OnCoinsChanged;
+    //[SerializeField]
+    //protected GameEvent OnTakeDamageEvent;
+    //[SerializeField]
+    //protected GameEvent OnDieEvent;
+    [SerializeField]
+    protected GameEvent OnCoinsChangedEvent;
 
     [SerializeField]
-    protected GameEvent OnTakeDamageEvent;
-    [SerializeField]
-    protected GameEvent OnDieEvent;
-
+    protected GameEventListener OnEnemyDie;
 
     [Inject]
     protected GameLevelConfig _gameConfig;
@@ -27,36 +23,39 @@ public class PlayerController : MonoBehaviour
     [Inject]
     GameController _gameController;
 
-    protected int _currentHealth;
+    //protected int _currentHealth;
     protected int _currentCoins;
 
-    public int CurrentHealth { get { return _currentHealth; } }
+    public int CurrentHealth { get { return (int)_healthController.Health; } }
     public int CurrentCoins { get { return _currentCoins; } }
+
+    HealthController _healthController;
 
     void Start()
     {
         Initialize();
-        AbstractEnemy.OnDie += KillEnemy;
+        //AbstractEnemy.OnDie += KillEnemy;
     }
 
     void Initialize()
     {
-        _currentHealth = _gameConfig.PlayerParams.StartHealth;
-        _currentCoins = _gameConfig.PlayerParams.StartCoins;
-        if(OnCoinsChanged != null)
-            OnCoinsChanged();
-        if(OnCoinsChanged != null)
-            OnHealthChanged();
+        _healthController = GetComponent<HealthController>();
+        _healthController.Initialize(_gameConfig.PlayerParams.StartHealth);
 
-        OnTakeDamageEvent.Raise(gameObject);
+        //_currentHealth = _gameConfig.PlayerParams.StartHealth;
+        _currentCoins = _gameConfig.PlayerParams.StartCoins;
+
+        //if(OnTakeDamageEvent)
+        //    OnTakeDamageEvent.Raise(gameObject);
+        //if(OnCoinsChangedEvent)
+        //    OnCoinsChangedEvent.Raise(gameObject);
     }
 
     private void OnDestroy()
     {
-        AbstractEnemy.OnDie -= KillEnemy;
+        //AbstractEnemy.OnDie -= KillEnemy;
     }
 
-    // Update is called once per frame
     void Update()
     {
         
@@ -64,33 +63,21 @@ public class PlayerController : MonoBehaviour
 
     public void TakeDamage(float damage)
     {
-        _currentHealth = _currentHealth - (int)damage;
-        if (OnHealthChanged != null)
-            OnHealthChanged();
-
-        if(_currentHealth <= 0)
-        {
-            if(OnDie != null)
-                OnDie();
-
-            if (OnDieEvent)
-                OnDieEvent.Raise(gameObject);
-        }
-
-        if(OnTakeDamageEvent)
-            OnTakeDamageEvent.Raise(gameObject);
+        _healthController.TakeDamage(DamageType.DT_Physical, damage);
     }
 
     public void AddCoins(int AddiditionalCoins)
     {
         _currentCoins += AddiditionalCoins;
-        OnCoinsChanged();
+        if (OnCoinsChangedEvent)
+            OnCoinsChangedEvent.Raise(gameObject);
     }
 
     public void SpendCoins(int Price)
     {
         _currentCoins -= Price;
-        OnCoinsChanged();
+        if (OnCoinsChangedEvent)
+            OnCoinsChangedEvent.Raise(gameObject);
     }
 
     public bool IsEnoughCoins(int NeedCoins)
@@ -100,6 +87,12 @@ public class PlayerController : MonoBehaviour
 
     void KillEnemy(AbstractEnemy Enemy)
     {
+        AddCoins(Enemy.GetCoinsForKilling());
+    }
+
+    public void OnEnemyKilled(GameObject KilledEnemy)
+    {
+        AbstractEnemy Enemy = KilledEnemy.GetComponent<AbstractEnemy>();
         AddCoins(Enemy.GetCoinsForKilling());
     }
 }

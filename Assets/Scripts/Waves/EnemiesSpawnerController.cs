@@ -8,6 +8,7 @@ public class EnemiesSpawnerController : MonoBehaviour
     public delegate void AllSpawnedEnemiesDestroyedHandler();
     public event AllSpawnedEnemiesDestroyedHandler OnAllSpawnedEnemiesDestroyed;
 
+    
     [Inject]
     EnemiesGroup _enemiesGroup;
 
@@ -28,20 +29,20 @@ public class EnemiesSpawnerController : MonoBehaviour
 
     private void Start()
     {
-        AbstractEnemy.OnEnemyDestroy += OnEnemyDestroyed;
+        //AbstractEnemy.OnEnemyDestroy += OnEnemyDestroyed;
     }
 
     private void OnDestroy()
     {
-        AbstractEnemy.OnEnemyDestroy -= OnEnemyDestroyed;
+        //AbstractEnemy.OnEnemyDestroy -= OnEnemyDestroyed;
     }
 
-    void OnEnemyDestroyed(AbstractEnemy DestroyedEnemy)
+    public void OnEnemyDied(GameObject DiedEnemy)
     {
-        if (!DestroyedEnemy)
+        if (!DiedEnemy)
             return;
 
-        int id = DestroyedEnemy.gameObject.GetInstanceID();
+        int id = DiedEnemy.GetInstanceID();
         if (_spawnedEnemies.ContainsKey(id))
         {
             _spawnedEnemies.Remove(id);

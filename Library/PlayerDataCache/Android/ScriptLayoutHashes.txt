@@ -26,7 +26,7 @@ e7a73f5f78ba6445195ec23b74a1ce2d Unity.TextMeshPro.dll:TMPro.TMP_ScrollbarEventH
 18a737ccba97a0465a3f9b6d9d6bc24e Assembly-CSharp.dll:.PlayerParams
 71bb6a6b6c8f052f948db64c7dd3ca4f Assembly-CSharp.dll:.UIAbstractInterfaseController
 71bb6a6b6c8f052f948db64c7dd3ca4f Zenject.dll:Zenject.ZenjectStateMachineBehaviourAutoInjecter
-71bb6a6b6c8f052f948db64c7dd3ca4f Assembly-CSharp.dll:.CannonTower
+d1c33a1c0e08349eb0131dd489a8c039 Assembly-CSharp.dll:.CannonTower
 71bb6a6b6c8f052f948db64c7dd3ca4f Zenject.dll:Zenject.MonoInstallerBase
 c45ef8c30cc2ee343077d78e1f372297 Zenject.dll:Zenject.SpaceFighter.Explosion
 71bb6a6b6c8f052f948db64c7dd3ca4f Assembly-CSharp-firstpass.dll:TMPro.TMP_PhoneNumberValidator
@@ -114,7 +114,7 @@ e1bbf0ab858085e38fae6b12ebbdcd35 UnityEngine.Timeline.dll:UnityEngine.Timeline.G
 e1bbf0ab858085e38fae6b12ebbdcd35 UnityEngine.Timeline.dll:UnityEngine.Timeline.PlayableTrack
 201e3fde670b00545944bb3db215c80a UnityEngine.Timeline.dll:UnityEngine.Timeline.TimelineAsset
 4e9333594897a1fb8b136ad2eae996c7 Unity.TextMeshPro.dll:TMPro.TMP_SubMeshUI
-71bb6a6b6c8f052f948db64c7dd3ca4f Assembly-CSharp.dll:.AbstractTower
+d1c33a1c0e08349eb0131dd489a8c039 Assembly-CSharp.dll:.AbstractTower
 e6ae40841db498b6e673877ac45ad208 UnityEngine.Networking.dll:UnityEngine.Networking.NetworkAnimator
 71bb6a6b6c8f052f948db64c7dd3ca4f UnityEngine.Networking.dll:UnityEngine.Networking.NetworkBehaviour
 1dcb82730d983b77cec736c6ef19f814 UnityEngine.Networking.dll:UnityEngine.Networking.NetworkDiscovery
@@ -134,7 +134,7 @@ d251bf88db6c95a6b1aa0b69298da9ef UnityEngine.SpatialTracking.dll:UnityEngine.Spa
 71bb6a6b6c8f052f948db64c7dd3ca4f Assembly-CSharp.dll:.TimeController
 4d16cfbaa8e821a2b370e80844a0e9bc Assembly-CSharp-firstpass.dll:TMPro.Examples.Benchmark03
 afc31e4ddab91135bb6bac9ec14612e8 Zenject.dll:Zenject.SpaceFighter.PlayerInstaller
-f7d6343c83f609ce1759686fbfb4aceb Assembly-CSharp.dll:.StrongEnemy
+02af70823c68e4e4bd8cfc2d913bc636 Assembly-CSharp.dll:.StrongEnemy
 303ad70ce203ad874efe2965d0fbcff9 Unity.Analytics.Tracker.dll:UnityEngine.Analytics.AnalyticsEventTracker
 7fb9de8dcf73854b6b328eca1f7a6e6d Unity.Analytics.Tracker.dll:UnityEngine.Analytics.AnalyticsTracker
 e6f0efd0e20669d577e9d21526b3d3f9 Assembly-CSharp-firstpass.dll:TMPro.Examples.WarpTextExample
@@ -145,10 +145,12 @@ b8a5e8091ab0b8861d2add371082c5e0 Unity.TextMeshPro.dll:TMPro.TMP_SpriteAsset
 08ee418b801850b56a351565b9c8bb78 Assembly-CSharp-firstpass.dll:TMPro.TMP_TextEventHandler
 47930f3b40e24ef5b3b5e3d9ada7097a Assembly-CSharp-firstpass.dll:TMPro.Examples.Benchmark01
 71bb6a6b6c8f052f948db64c7dd3ca4f Assembly-CSharp.dll:.GameInstaller
+7661c24f1b992d98671e78993d176f9a Assembly-CSharp.dll:.GameEventListener
 258c03f3ff1f77e0ed8b6ea54dcb2b66 Assembly-CSharp.dll:.UIActionTowerButton
-f7d6343c83f609ce1759686fbfb4aceb Assembly-CSharp.dll:.AbstractEnemy
+02af70823c68e4e4bd8cfc2d913bc636 Assembly-CSharp.dll:.AbstractEnemy
 b3ab2106268377ffe25dd18ac23dca28 Unity.TextMeshPro.dll:TMPro.TMP_Asset
 03b1f2ee800c4cc86ad8554760d0e7ea Zenject.dll:Zenject.Asteroids.GuiHandler
+71bb6a6b6c8f052f948db64c7dd3ca4f Assembly-CSharp.dll:.GameEvent
 a99b318176d19988b456fcf5cb0452f5 Zenject.dll:Zenject.SceneContext
 71bb6a6b6c8f052f948db64c7dd3ca4f Zenject.dll:Zenject.MonoInstaller
 3375c3d749f8f4cad889721b431bdc27 Assembly-CSharp-firstpass.dll:TMPro.Examples.CameraController
@@ -161,12 +163,12 @@ e63944317d2f5958e31963668bb29158 Assembly-CSharp-firstpass.dll:TMPro.Examples.Ve
 71bb6a6b6c8f052f948db64c7dd3ca4f Zenject.dll:Zenject.ProjectKernel
 b16a6adc97f40b49027b23341e726ecd Zenject.dll:Zenject.Asteroids.GameSettingsInstaller
 90277704ece3ccddb50a43901005a06e Zenject.dll:Zenject.GameObjectContext
-f7d6343c83f609ce1759686fbfb4aceb Assembly-CSharp.dll:.BaseEnemy
+02af70823c68e4e4bd8cfc2d913bc636 Assembly-CSharp.dll:.BaseEnemy
 e4d6f2b4faf700bcb0305e70c36662e1 Assembly-CSharp.dll:.GameLevelConfig
 d5de1c9a7feae1dfb2eda43d0789cd33 Zenject.dll:Zenject.SpaceFighter.PlayerGui
 4fd8bf02e3089425d3502e26c44ba31a Unity.TextMeshPro.dll:TMPro.TextContainer
 3cae62e09a50c5d5aae8d0536b3d8fde Assembly-CSharp-firstpass.dll:.ChatController
-71bb6a6b6c8f052f948db64c7dd3ca4f Assembly-CSharp.dll:.MageTower
+d1c33a1c0e08349eb0131dd489a8c039 Assembly-CSharp.dll:.MageTower
 f9c05aa86e45cc76878136fb48a10c5d Zenject.dll:Zenject.SceneDecoratorContext
 71bb6a6b6c8f052f948db64c7dd3ca4f Zenject.dll:Zenject.AnimatorMoveHandlerManager
 71bb6a6b6c8f052f948db64c7dd3ca4f Zenject.dll:Zenject.AnimatorIkHandlerManager
@@ -185,7 +187,7 @@ e0ee4b3d4e27318934cc940a969d3d96 UnityEngine.Networking.dll:UnityEngine.Networki
 ad9173d3a69d99153f38ed4b62226129 UnityEngine.Networking.dll:UnityEngine.Networking.NetworkTransform
 9b895dcabbc1faf095c000c32d471fd0 UnityEngine.Networking.dll:UnityEngine.Networking.NetworkTransformChild
 5887ef1bc706b22b773d253fd443ceef UnityEngine.Networking.dll:UnityEngine.Networking.NetworkTransformVisualizer
-71bb6a6b6c8f052f948db64c7dd3ca4f Assembly-CSharp.dll:.FlamerTower
+d1c33a1c0e08349eb0131dd489a8c039 Assembly-CSharp.dll:.FlamerTower
 71bb6a6b6c8f052f948db64c7dd3ca4f Assembly-CSharp.dll:.CastleController
 11319334e5365797f8056694f9b5dae4 Assembly-CSharp-firstpass.dll:TMPro.Examples.ObjectSpin
 e3cad8dafbe69187c75b69c74146818c Assembly-CSharp.dll:.UIBuildTowerDialogueController
@@ -204,7 +206,7 @@ e1300922cc039f41ab46a47f4cb05898 Unity.TextMeshPro.dll:TMPro.TMP_Settings
 7a25fcb81bf8eb2f157d591103c1dd7b UnityEngine.TestRunner.dll:UnityEngine.TestTools.TestRunner.PlaymodeTestsController
 71bb6a6b6c8f052f948db64c7dd3ca4f UnityEngine.TestRunner.dll:UnityEngine.TestTools.TestRunner.Callbacks.RemoteTestResultSender
 71bb6a6b6c8f052f948db64c7dd3ca4f UnityEngine.TestRunner.dll:UnityEngine.TestTools.TestRunner.Callbacks.TestResultRendererCallback
-71bb6a6b6c8f052f948db64c7dd3ca4f Assembly-CSharp.dll:.PlayerController
+5583adf95128f101586be34c0f6f45ea Assembly-CSharp.dll:.PlayerController
 931f489e44eadf809e9310429c99dde5 UnityEngine.GoogleAudioSpatializer.dll:UnityEngine.Experimental.Audio.Google.GvrAudioListenerExtension
 fb6a1ea36b4f6ef5948d283d93760765 UnityEngine.GoogleAudioSpatializer.dll:UnityEngine.Experimental.Audio.Google.GvrAudioRoom
 5b0391b7e3d9ea9db6c0a8fbd0ca23f6 UnityEngine.GoogleAudioSpatializer.dll:UnityEngine.Experimental.Audio.Google.GvrAudioSoundfieldExtension
@@ -217,14 +219,14 @@ fb6a1ea36b4f6ef5948d283d93760765 UnityEngine.GoogleAudioSpatializer.dll:UnityEng
 5b0391b7e3d9ea9db6c0a8fbd0ca23f6 UnityEngine.GoogleAudioSpatializer.dll:UnityEngine.Experimental.Audio.Google.GvrAudioSourceExtension
 274152c972478468d8321a977bbca8e3 Assembly-CSharp-firstpass.dll:TMPro.Examples.TMP_TextInfoDebugTool
 3cf156985df62fac63708d6bed3583bf Zenject.dll:Zenject.Asteroids.TilingBackground
-71bb6a6b6c8f052f948db64c7dd3ca4f Assembly-CSharp.dll:.WavesController
+c29abcb7f50ad52582719d0c6d94b5a5 Assembly-CSharp.dll:.WavesController
 bd3f0ca738703903e759f77536ed74fd Assembly-CSharp-firstpass.dll:TMPro.Examples.TMP_FrameRateCounter
 a1ca1237bad0f30ea5ba8f4060929114 Assembly-CSharp-firstpass.dll:TMPro.Examples.TMP_TextSelector_B
 8ed3d56f3b2b2d744745b88ef60a0eb4 Zenject.dll:Zenject.SpaceFighter.GameSettingsInstaller
 3b760e6526e13f7504f59e210145899a Unity.TextMeshPro.dll:TMPro.TextMeshProUGUI
 507174d46dacbc5fe45e28485db5dd1e Unity.Analytics.DataPrivacy.dll:UnityEngine.Analytics.DataPrivacyButton
 27e5341178f188b89bdc6495710b590c Assembly-CSharp-firstpass.dll:TMPro.Examples.Benchmark01_UGUI
-71bb6a6b6c8f052f948db64c7dd3ca4f Assembly-CSharp.dll:.ArcherTower
+d1c33a1c0e08349eb0131dd489a8c039 Assembly-CSharp.dll:.ArcherTower
 8a874a8207a7664bdf44e61f28717254 Assembly-CSharp-firstpass.dll:TMPro.Examples.SkewTextExample
 d251bf88db6c95a6b1aa0b69298da9ef UnityEngine.SpatialTracking.dll:UnityEngine.SpatialTracking.TrackedPoseDriver
 fe2d355deb0ca31d59a0a7cf4d141fc3 Assembly-CSharp-firstpass.dll:TMPro.Examples.Benchmark04
@@ -232,7 +234,7 @@ fe2d355deb0ca31d59a0a7cf4d141fc3 Assembly-CSharp-firstpass.dll:TMPro.Examples.Be
 4d16cfbaa8e821a2b370e80844a0e9bc Assembly-CSharp-firstpass.dll:TMPro.Examples.TextMeshSpawner
 e63944317d2f5958e31963668bb29158 Assembly-CSharp-firstpass.dll:TMPro.Examples.VertexShakeB
 5bb0c23ac2810973880e592724a69354 Assembly-CSharp-firstpass.dll:TMPro.Examples.Benchmark02
-f7d6343c83f609ce1759686fbfb4aceb Assembly-CSharp.dll:.FastEnemy
+02af70823c68e4e4bd8cfc2d913bc636 Assembly-CSharp.dll:.FastEnemy
 71bb6a6b6c8f052f948db64c7dd3ca4f Zenject.dll:Zenject.SpaceFighter.PlayerFacade
 72fdfe9945e1f8f792d601e52fa9dcd7 Assembly-CSharp.dll:.EnemyParams
 bd3f0ca738703903e759f77536ed74fd Assembly-CSharp-firstpass.dll:TMPro.Examples.TMP_UiFrameRateCounter
@@ -258,3 +260,4 @@ df434544c9f7b33d1cc7e635b180d279 Unity.TextMeshPro.dll:TMPro.TextMeshPro
 71bb6a6b6c8f052f948db64c7dd3ca4f Zenject.dll:Zenject.Asteroids.GameInstaller
 71bb6a6b6c8f052f948db64c7dd3ca4f Assembly-CSharp.dll:.AbstractProjectile
 a9118fb5f6d913bd7f7536f843376959 Zenject.dll:Zenject.ZenjectBinding
+0d5ae21dbeb297ab6205d5b37c522a69 Assembly-CSharp.dll:.HealthController

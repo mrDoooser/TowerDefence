@@ -7,14 +7,11 @@ public class GameEventListener : MonoBehaviour
 {
 
     public GameEvent Event;
-    //public UnityEvent<GameObject> Response;
-    //public UnityEvent Response;
     public GameEventObject Response;
 
     public void OnEventRaised(GameObject RaiseOwner)
     {
-        Response.Invoke(RaiseOwner);
-        //Response.Invoke();
+        Response.Invoke((GameObject)RaiseOwner);
     }
 
     private void OnEnable()
@@ -23,6 +20,11 @@ public class GameEventListener : MonoBehaviour
     }
 
     private void OnDisable()
+    {
+        Event.UnregisterListener(this);
+    }
+
+    private void OnDestroy()
     {
         Event.UnregisterListener(this);
     }

@@ -9,9 +9,17 @@ public class GameEvent : ScriptableObject
 
     public void Raise(GameObject RaiseOwner)
     {
+        int startCount = listeners.Count;
         for (int i = 0; i < listeners.Count; i++)
         {
-            listeners[i].OnEventRaised(RaiseOwner);
+            try
+            {
+                if(RaiseOwner)
+                    listeners[i].OnEventRaised(RaiseOwner);
+            }
+            catch (System.Exception e)
+            {
+            }
         }
     }
 
@@ -27,6 +35,7 @@ public class GameEvent : ScriptableObject
     {
         if (InList(listener))
         {
+            //Debug.Log("UnregisterListener for " + listener.gameObject);
             listeners.Remove(listener);
         }
     }

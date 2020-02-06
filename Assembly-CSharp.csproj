@@ -78,7 +78,6 @@
     <Compile Include="Assets\Scripts\Interfaces\IDamagable.cs" />
     <Compile Include="Assets\Scripts\Player\CastleController.cs" />
     <Compile Include="Assets\Scripts\Player\PlayerController.cs" />
-    <Compile Include="Assets\Scripts\Player\PlayerHealthController.cs" />
     <Compile Include="Assets\Scripts\Projectile\AbstractProjectile.cs" />
     <Compile Include="Assets\Scripts\Road\CheckpointController.cs" />
     <Compile Include="Assets\Scripts\Road\RoadController.cs" />
@@ -102,6 +101,7 @@
     <Compile Include="Assets\Scripts\UI\UILooseDialogueController.cs" />
     <Compile Include="Assets\Scripts\UI\UISellTowerDialogueController.cs" />
     <Compile Include="Assets\Scripts\UI\UIWinDialogueController.cs" />
+    <Compile Include="Assets\Scripts\Universal\HealthController.cs" />
     <Compile Include="Assets\Scripts\Waves\EnemiesSpawnerController.cs" />
     <Compile Include="Assets\Scripts\Waves\WavesController.cs" />
     <Reference Include="Unity.TextMeshPro.Editor">

@@ -11,7 +11,6 @@ public class AbstractProjectile : MonoBehaviour
     protected float _damage;
     protected bool _isActive;
 
-
     public void SetParams(AbstractEnemy Target, float Speed, DamageType DamageType, float Damage)
     {
         _target = Target;
@@ -19,22 +18,15 @@ public class AbstractProjectile : MonoBehaviour
         _damageType = DamageType;
         _damage = Damage;
         _targetObject = _target.gameObject;
-        AbstractEnemy.OnDie += OnEnemyDie;
         _isActive = true;
     }
 
-    private void OnDestroy()
+    public void OnEnemyDie(GameObject DiedEnemy)
     {
-        AbstractEnemy.OnDie -= OnEnemyDie;
+        if (!_target || DiedEnemy == _targetObject)
+            TargetLost();
     }
 
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
     void Update()
     {
         if (_target)
@@ -66,11 +58,11 @@ public class AbstractProjectile : MonoBehaviour
         Destroy(gameObject);
     }
 
-    protected void OnEnemyDie(AbstractEnemy Enemy)
-    {
-        if(Enemy == _target || !_target)
-        {
-            TargetLost();
-        }
-    }
+    //protected void OnEnemyDie(AbstractEnemy Enemy)
+    //{
+    //    if(Enemy == _target || !_target)
+    //    {
+    //        TargetLost();
+    //    }
+    //}
 }

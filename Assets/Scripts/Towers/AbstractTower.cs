@@ -24,6 +24,9 @@ public class AbstractTower : MonoBehaviour
     [Inject]
     protected GameController _gameController;
 
+    [SerializeField]
+    protected GameEventListener OnEnemyDieEventListener;
+
     public TowerParams TowerParams { get; set; }
 
     protected SphereCollider _trigger;
@@ -39,7 +42,6 @@ public class AbstractTower : MonoBehaviour
         if (!_trigger)
             AddTrigger();
 
-        AbstractEnemy.OnDie += OnEnemyDie;
     }
 
     protected virtual void AddTrigger()
@@ -129,10 +131,10 @@ public class AbstractTower : MonoBehaviour
         }
     }
 
-    protected virtual void OnEnemyDie(AbstractEnemy DiedEnemy)
+    protected virtual void OnEnemyDie(GameObject DiedEnemy)
     {
-        if (_potencialTargets.ContainsKey(DiedEnemy.gameObject.GetInstanceID()))
-            _potencialTargets.Remove(DiedEnemy.gameObject.GetInstanceID());
+        if (_potencialTargets.ContainsKey(DiedEnemy.GetInstanceID()))
+            _potencialTargets.Remove(DiedEnemy.GetInstanceID());
     }
 
     protected virtual void StopFire()

@@ -3,16 +3,22 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
 
-public class AbstractEnemy : MonoBehaviour, IDamagable
+[RequireComponent(typeof(HealthController))]
+public class AbstractEnemy : MonoBehaviour
 {
-    public delegate void DieHandler(AbstractEnemy Died);
-    public static event DieHandler OnDie;
-    public static event DieHandler OnEnemyDestroy;
+    //public delegate void DieHandler(AbstractEnemy Died);
+    //public static event DieHandler OnDie;
+    //public static event DieHandler OnEnemyDestroy;
+
+    [SerializeField]
+    protected GameEvent OnDestroyEvent;
 
     [SerializeField]
     protected NavMeshAgent _navMeshAgent;
 
     protected EnemyParams _params;
+
+    HealthController _healthController;
 
     float _timeStamp;
     public float TimeStamp { get { return _timeStamp; } }
@@ -37,18 +43,20 @@ public class AbstractEnemy : MonoBehaviour, IDamagable
                 Initialize();
 
             _navMeshAgent.speed = _params.MovingSpeed;
-            MaxHealth = _params.Health;
-            Health = MaxHealth;
+            _healthController.Initialize(_params.Health);
+            //MaxHealth = _params.Health;
+            //Health = MaxHealth;
         }
     }
 
-    public float Health { get; set; }
-    public float MaxHealth { get; set; }
+    public float Health { get { return _healthController.Health; } }
 
     protected void Initialize()
     {
         _navMeshAgent = GetComponent<NavMeshAgent>();
         _timeStamp = Time.timeSinceLevelLoad;
+        _healthController = GetComponent<HealthController>();
+        _healthController.Initialize(_params.Health);
     }
 
     
@@ -62,30 +70,38 @@ public class AbstractEnemy : MonoBehaviour, IDamagable
 
     public virtual void TakeDamage(DamageType DamageType, float Damage)
     {
-        Health -= Damage;
+        _healthController.TakeDamage(DamageType, Damage);
 
-        // TODO: Show damage
+        //Health -= Damage;
 
-        if(Health <= 0)
-        {
-            Health = 0;
-            Die();
-        }
+        //// TODO: Show damage
+
+        //if(Health <= 0)
+        //{
+        //    Health = 0;
+        //    Die();
+        //}
     }
 
-    public virtual void Die()
+    public virtual void Die(GameObject diedEnemy)
     {
-        if (OnDie!=null)
-            OnDie(this);
+        //if (OnDie!=null)
+        //    OnDie(this);
 
-        // TODO: Show coins num
-
-        Destroy(gameObject);
+        if(diedEnemy == gameObject)
+            Destroy(gameObject);
     }
 
     private void OnDestroy()
     {
-        if (OnEnemyDestroy != null)
-            OnEnemyDestroy(this);
+        //if (OnEnemyDestroy != null)
+        //    OnEnemyDestroy(this);
+        if (OnDestroyEvent)
+            OnDestroyEvent.Raise(gameObject);
+    }
+
+    public void Initialize(float MaxHealth)
+    {
+        _healthController.Initialize(MaxHealth);
     }
 }

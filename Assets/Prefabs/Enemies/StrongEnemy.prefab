@@ -105,6 +105,8 @@ GameObject:
   - component: {fileID: 5528352119465528724}
   - component: {fileID: 1390978930821479904}
   - component: {fileID: 54947965829558774}
+  - component: {fileID: 114338766818260566}
+  - component: {fileID: 114484126588554048}
   m_Layer: 0
   m_Name: StrongEnemy
   m_TagString: Untagged
@@ -174,8 +176,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 52c329a4a94995747ad850e3b164cb2c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  OnDestroyEvent: {fileID: 11400000, guid: 61ce9172389591a48b4f46e543dcde7b, type: 2}
   _navMeshAgent: {fileID: 0}
-  NextPos: {x: 0, y: 0, z: 0}
 --- !u!54 &54947965829558774
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -192,3 +194,44 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!114 &114338766818260566
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8525022023415287789}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bf5ed9e594f3b9644a4ebfd050175239, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Event: {fileID: 11400000, guid: aa0d3047ed7f86b4fb271ec66f0b0875, type: 2}
+  Response:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1390978930821479904}
+        m_MethodName: Die
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+--- !u!114 &114484126588554048
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8525022023415287789}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0c07f0bda19a3c346a7afe08341dcd12, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  OnTakeDamageEvent: {fileID: 11400000, guid: ab891b79245aa3e44af67b9e7aa2f49e, type: 2}
+  OnDieEvent: {fileID: 11400000, guid: aa0d3047ed7f86b4fb271ec66f0b0875, type: 2}

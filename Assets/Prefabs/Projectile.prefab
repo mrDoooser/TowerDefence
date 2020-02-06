@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 1195695619235044854}
   - component: {fileID: 3751011422249551240}
   - component: {fileID: 54464338568564394}
+  - component: {fileID: 114010435558212564}
   m_Layer: 0
   m_Name: Projectile
   m_TagString: Untagged
@@ -45,6 +46,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 55c68ecfdf0183749b95f099e6b97762, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  OnEnemyDieEventListener: {fileID: 0}
 --- !u!54 &54464338568564394
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -61,6 +63,33 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!114 &114010435558212564
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6122753513289294259}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bf5ed9e594f3b9644a4ebfd050175239, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Event: {fileID: 11400000, guid: aa0d3047ed7f86b4fb271ec66f0b0875, type: 2}
+  Response:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 3751011422249551240}
+        m_MethodName: OnEnemyDie
+        m_Mode: 2
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.GameObject, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &7246409970857806704
 GameObject:
   m_ObjectHideFlags: 0

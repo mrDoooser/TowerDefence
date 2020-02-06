@@ -23,10 +23,6 @@ public class UIGameInfoController : UIAbstractInterfaseController
 
     void Start()
     {
-        //PlayerController.OnHealthChanged += OnPlayerHealhChanged;
-        PlayerController.OnCoinsChanged += OnPlayerCoinsChanged;
-        _wavesController.OnNewWaveStarted += OnWavesCountChanged;
-
         OnPlayerHealhChanged();
         OnPlayerCoinsChanged();
         OnWavesCountChanged();
@@ -34,9 +30,6 @@ public class UIGameInfoController : UIAbstractInterfaseController
 
     private void OnDestroy()
     {
-        //PlayerController.OnHealthChanged -= OnPlayerHealhChanged;
-        PlayerController.OnCoinsChanged -= OnPlayerCoinsChanged;
-        _wavesController.OnNewWaveStarted -= OnWavesCountChanged;
     }
 
     public void OnPlayerHealhChanged()
@@ -44,12 +37,12 @@ public class UIGameInfoController : UIAbstractInterfaseController
         _textMeshPlayerHealth.text = _playerController.CurrentHealth.ToString();
     }
 
-    void OnPlayerCoinsChanged()
+    public void OnPlayerCoinsChanged()
     {
         _textMeshPlayerCoins.text = _playerController.CurrentCoins.ToString();
     }
 
-    void OnWavesCountChanged()
+    public void OnWavesCountChanged()
     {
         _textMeshPlayerWaves.text = (_wavesController.CurrentWave+1).ToString() + "/" + _wavesController.TotalWaves.ToString();
     }

@@ -1188,7 +1188,7 @@ MonoBehaviour:
     spaceCount: 1
     wordCount: 2
     linkCount: 0
-    lineCount: 2
+    lineCount: 1
     pageCount: 1
     materialCount: 1
   m_isUsingLegacyAnimationComponent: 0
@@ -1953,6 +1953,8 @@ GameObject:
   - component: {fileID: 564444698}
   - component: {fileID: 564444700}
   - component: {fileID: 564444699}
+  - component: {fileID: 564444701}
+  - component: {fileID: 564444702}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -1987,8 +1989,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 951a73baf87523c46b259e069562c55a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  OnTakeDamageEvent: {fileID: 11400000, guid: 96387a008514cb940928dd99c5883148, type: 2}
-  OnDieEvent: {fileID: 11400000, guid: 65297cfb8b6d08c4c81d3865f54baeab, type: 2}
+  OnCoinsChangedEvent: {fileID: 11400000, guid: 4e464c80323e45f4ebeb9f67e0fb5f35,
+    type: 2}
+  OnEnemyDie: {fileID: 0}
 --- !u!114 &564444700
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2007,6 +2010,47 @@ MonoBehaviour:
   _useSceneContext: 0
   _context: {fileID: 0}
   _bindType: 0
+--- !u!114 &564444701
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 564444697}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0c07f0bda19a3c346a7afe08341dcd12, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  OnTakeDamageEvent: {fileID: 11400000, guid: 96387a008514cb940928dd99c5883148, type: 2}
+  OnDieEvent: {fileID: 11400000, guid: 65297cfb8b6d08c4c81d3865f54baeab, type: 2}
+--- !u!114 &564444702
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 564444697}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bf5ed9e594f3b9644a4ebfd050175239, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Event: {fileID: 11400000, guid: aa0d3047ed7f86b4fb271ec66f0b0875, type: 2}
+  Response:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 564444699}
+        m_MethodName: OnEnemyKilled
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &566405445
 GameObject:
   m_ObjectHideFlags: 0
@@ -2249,6 +2293,7 @@ GameObject:
   - component: {fileID: 672262753}
   - component: {fileID: 672262754}
   - component: {fileID: 672262755}
+  - component: {fileID: 672262756}
   m_Layer: 0
   m_Name: EnemiesSpawner
   m_TagString: Untagged
@@ -2303,6 +2348,33 @@ MonoBehaviour:
   _useSceneContext: 0
   _context: {fileID: 0}
   _bindType: 0
+--- !u!114 &672262756
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 672262752}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bf5ed9e594f3b9644a4ebfd050175239, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Event: {fileID: 11400000, guid: aa0d3047ed7f86b4fb271ec66f0b0875, type: 2}
+  Response:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 672262754}
+        m_MethodName: OnEnemyDied
+        m_Mode: 2
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.GameObject, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &685959131
 GameObject:
   m_ObjectHideFlags: 0
@@ -2665,7 +2737,7 @@ MonoBehaviour:
   m_outlineColor:
     serializedVersion: 2
     rgba: 4278190080
-  m_fontSize: 13.5
+  m_fontSize: 16.85
   m_fontSizeBase: 14
   m_fontWeight: 400
   m_enableAutoSizing: 1
@@ -3290,6 +3362,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 96e3607be4c86f844bee4059800f98cf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  OnWavesEndedEvent: {fileID: 11400000, guid: 49df7dca3d6a49a4a870d7d2b3cd744b, type: 2}
+  OnNewWaveStartedEvent: {fileID: 11400000, guid: 56c44205cd7bbe24288416c93bf07939,
+    type: 2}
 --- !u!4 &1152443697
 Transform:
   m_ObjectHideFlags: 0
@@ -3679,7 +3754,7 @@ MonoBehaviour:
   m_outlineColor:
     serializedVersion: 2
     rgba: 4278190080
-  m_fontSize: 22.3
+  m_fontSize: 27.95
   m_fontSizeBase: 18
   m_fontWeight: 400
   m_enableAutoSizing: 1
@@ -4504,6 +4579,7 @@ GameObject:
   - component: {fileID: 1542819216}
   - component: {fileID: 1542819218}
   - component: {fileID: 1542819219}
+  - component: {fileID: 1542819220}
   m_Layer: 0
   m_Name: GameController
   m_TagString: Untagged
@@ -4586,6 +4662,33 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 1542819217}
         m_MethodName: PlayerLoose
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+--- !u!114 &1542819220
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1542819214}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bf5ed9e594f3b9644a4ebfd050175239, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Event: {fileID: 11400000, guid: 49df7dca3d6a49a4a870d7d2b3cd744b, type: 2}
+  Response:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1542819217}
+        m_MethodName: PlayerWin
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -4782,7 +4885,7 @@ MonoBehaviour:
   m_outlineColor:
     serializedVersion: 2
     rgba: 4278190080
-  m_fontSize: 13.55
+  m_fontSize: 16.95
   m_fontSizeBase: 14
   m_fontWeight: 400
   m_enableAutoSizing: 1
@@ -4868,6 +4971,8 @@ GameObject:
   - component: {fileID: 1563451575}
   - component: {fileID: 1563451574}
   - component: {fileID: 1563451576}
+  - component: {fileID: 1563451577}
+  - component: {fileID: 1563451578}
   m_Layer: 5
   m_Name: GameInfo_Panel
   m_TagString: Untagged
@@ -4987,6 +5092,60 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 1563451575}
         m_MethodName: OnPlayerHealhChanged
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+--- !u!114 &1563451577
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1563451570}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bf5ed9e594f3b9644a4ebfd050175239, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Event: {fileID: 11400000, guid: 4e464c80323e45f4ebeb9f67e0fb5f35, type: 2}
+  Response:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1563451575}
+        m_MethodName: OnPlayerCoinsChanged
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+--- !u!114 &1563451578
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1563451570}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bf5ed9e594f3b9644a4ebfd050175239, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Event: {fileID: 11400000, guid: 56c44205cd7bbe24288416c93bf07939, type: 2}
+  Response:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1563451575}
+        m_MethodName: OnWavesCountChanged
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -6007,7 +6166,7 @@ MonoBehaviour:
   m_enableWordWrapping: 1
   m_wordWrappingRatios: 0.4
   m_overflowMode: 0
-  m_firstOverflowCharacterIndex: 0
+  m_firstOverflowCharacterIndex: -1
   m_linkedTextComponent: {fileID: 0}
   m_isLinkedTextComponent: 0
   m_isTextTruncated: 0
@@ -6366,7 +6525,7 @@ MonoBehaviour:
   m_outlineColor:
     serializedVersion: 2
     rgba: 4278190080
-  m_fontSize: 19.55
+  m_fontSize: 24.4
   m_fontSizeBase: 18
   m_fontWeight: 400
   m_enableAutoSizing: 1
